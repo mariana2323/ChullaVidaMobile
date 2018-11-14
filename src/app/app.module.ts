@@ -10,6 +10,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {JugadoresPage} from "../pages/jugadores/jugadores";
+import {PuntajesPage} from "../pages/puntajes/puntajes";
+import {HttpClientModule} from "@angular/common/http";
+import { JugadorServiceProvider } from '../providers/jugador-service/jugador-service';
 
 @NgModule({
   declarations: [
@@ -17,10 +21,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+      JugadoresPage,
+      PuntajesPage
   ],
   imports: [
     BrowserModule,
+      HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -29,12 +36,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+      JugadoresPage,
+      PuntajesPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    JugadorServiceProvider
   ]
 })
 export class AppModule {}

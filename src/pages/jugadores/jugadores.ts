@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { JugadorServiceProvider} from "../../providers/jugador-service/jugador-service";
 
 /**
  * Generated class for the JugadoresPage page.
@@ -14,12 +15,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'jugadores.html',
 })
 export class JugadoresPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  jugadores: any[] = [];
+  constructor(public navCtrl: NavController, public JugadorServiceProvider: JugadorServiceProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad JugadoresPage');
+    this.JugadorServiceProvider.getJugadores()
+        .subscribe(
+            (data)=> {
+              this.jugadores = data['results'];
+            },
+            (error) => {
+              console.log(error);
+            }
+        )
   }
 
 }
