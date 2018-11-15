@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Platform} from "ionic-angular";
 
 /*
   Generated class for the JugadorServiceProvider provider.
@@ -9,12 +10,14 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class JugadorServiceProvider {
-
-  constructor(public http: HttpClient) {
-    console.log('Hello JugadorServiceProvider Provider');
+  basepath = "/api"
+  constructor(public http: HttpClient, private _platform: Platform) {
+    if (this._platform.is("cordova")){
+      this.basepath = "http://192.168.32.146:8100/api"
+    }
   }
   getJugadores(){
-    return this.http.get('localhost:8000/api/consultarjugadores');
+    return this.http.get(this.basepath.concat('/consultarjugadores'));
   }
 
 }

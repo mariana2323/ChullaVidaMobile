@@ -12,40 +12,39 @@
 
 </ion-header>
 
-
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let jugador of jugadores">
-      <h2>{{jugador.apodo}}</h2>
-      <h1>{{jugador.nombre}}</h1>
-    </ion-item>
-  </ion-list>
-  <ion-list inset>
+    <ion-list>
+        <ion-item *ngFor="let jugador of jugadores?.data">
+            <h2>{{jugador.apodo}}</h2>
+            <h1>{{jugador.nombre}}</h1>
+        </ion-item>
+    </ion-list>
+    <ion-list inset>
 
-    <ion-item>
-      <ion-label>Apodo</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-label>Apodo</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label>Nombre</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-label>Nombre</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label>Apellido</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-label>Apellido</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label>Fecha de nacimiento</ion-label>
-      <ion-input type="date"></ion-input>
-    </ion-item>
-    <ion-buttons start>
-      <button ion-button icon-only>
-          <ion-icon name="add-circle"></ion-icon>
-      </button>
-    </ion-buttons>
+        <ion-item>
+            <ion-label>Fecha de nacimiento</ion-label>
+            <ion-input type="date"></ion-input>
+        </ion-item>
+        <ion-buttons start>
+            <button ion-button icon-only>
+                <ion-icon name="add-circle"></ion-icon>
+            </button>
+        </ion-buttons>
 
-  </ion-list>
+    </ion-list>
 </ion-content>

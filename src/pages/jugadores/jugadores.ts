@@ -15,15 +15,15 @@ import { JugadorServiceProvider} from "../../providers/jugador-service/jugador-s
   templateUrl: 'jugadores.html',
 })
 export class JugadoresPage {
-  jugadores: any[] = [];
-  constructor(public navCtrl: NavController, public JugadorServiceProvider: JugadorServiceProvider) {
+  jugadores: any;
+  constructor(public navCtrl: NavController,  public navParams: NavParams, public JugadorServiceProvider: JugadorServiceProvider) {
   }
 
   ionViewDidLoad() {
     this.JugadorServiceProvider.getJugadores()
         .subscribe(
             (data)=> {
-              this.jugadores = data['results'];
+              this.jugadores = data;
             },
             (error) => {
               console.log(error);
