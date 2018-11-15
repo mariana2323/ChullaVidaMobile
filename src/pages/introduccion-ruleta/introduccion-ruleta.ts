@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {RuletaPage} from "../../pages/ruleta/ruleta";
 
 /**
  * Generated class for the IntroduccionRuletaPage page.
@@ -21,5 +22,7 @@ export class IntroduccionRuletaPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad IntroduccionRuletaPage');
   }
-
+    irRuleta(){
+        this.navCtrl.push(RuletaPage);
+    }
 }

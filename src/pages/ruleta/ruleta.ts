@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RuletaServiceProvider} from "../../providers/ruleta-service/ruleta-service";
 
 /**
  * Generated class for the RuletaPage page.
@@ -14,12 +15,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'ruleta.html',
 })
 export class RuletaPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  jugadores: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public RuletaServiceProvider: RuletaServiceProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RuletaPage');
+      this.RuletaServiceProvider.jugadores()
+          .subscribe(
+              (data)=> {
+                  this.jugadores = data;
+              },
+              (error) => {
+                  console.log(error);
+              }
+          )
   }
 
 }
