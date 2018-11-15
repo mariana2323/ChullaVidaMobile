@@ -12,8 +12,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {JugadoresPage} from "../pages/jugadores/jugadores";
 import {PuntajesPage} from "../pages/puntajes/puntajes";
+import {RuletaPage} from "../pages/ruleta/ruleta";
+import {IntroduccionRuletaPage} from "../pages/introduccion-ruleta/introduccion-ruleta";
 import {HttpClientModule} from "@angular/common/http";
 import { JugadorServiceProvider } from '../providers/jugador-service/jugador-service';
+import { RuletaServiceProvider } from '../providers/ruleta-service/ruleta-service';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { JugadorServiceProvider } from '../providers/jugador-service/jugador-ser
     HomePage,
     TabsPage,
       JugadoresPage,
-      PuntajesPage
+      PuntajesPage,
+      IntroduccionRuletaPage,
+      RuletaPage
   ],
   imports: [
     BrowserModule,
@@ -38,13 +43,16 @@ import { JugadorServiceProvider } from '../providers/jugador-service/jugador-ser
     HomePage,
     TabsPage,
       JugadoresPage,
-      PuntajesPage
+      PuntajesPage,
+      IntroduccionRuletaPage,
+      RuletaPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    JugadorServiceProvider
+    JugadorServiceProvider,
+    RuletaServiceProvider
   ]
 })
 export class AppModule {}
