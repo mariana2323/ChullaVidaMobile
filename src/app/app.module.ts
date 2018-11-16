@@ -20,6 +20,9 @@ import { RuletaServiceProvider } from '../providers/ruleta-service/ruleta-servic
 import { DadoServiceProvider } from '../providers/dado-service/dado-service';
 import { DadosPage} from '../pages/dados/dados';
 import {IntroduccionDadosPage} from "../pages/introduccion-dados/introduccion-dados";
+import {IntroduccionCrtasPage} from "../pages/introduccion-crtas/introduccion-crtas";
+import { CartasPage} from '../pages/cartas/cartas';
+import { CartasServiceProvider } from '../providers/cartas-service/cartas-service';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import {IntroduccionDadosPage} from "../pages/introduccion-dados/introduccion-da
       IntroduccionRuletaPage,
       RuletaPage,
       DadosPage,
-      IntroduccionDadosPage
+      IntroduccionDadosPage,
+      IntroduccionCrtasPage,
+      CartasPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,9 @@ import {IntroduccionDadosPage} from "../pages/introduccion-dados/introduccion-da
       IntroduccionRuletaPage,
       RuletaPage,
       DadosPage,
-      IntroduccionDadosPage
+      IntroduccionDadosPage,
+      IntroduccionCrtasPage,
+      CartasPage
   ],
   providers: [
     StatusBar,
@@ -60,7 +67,8 @@ import {IntroduccionDadosPage} from "../pages/introduccion-dados/introduccion-da
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     JugadorServiceProvider,
     RuletaServiceProvider,
-    DadoServiceProvider
+    DadoServiceProvider,
+    CartasServiceProvider
   ]
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {CartasPage} from "../cartas/cartas";
 
 /**
  * Generated class for the IntroduccionCrtasPage page.
@@ -21,5 +22,7 @@ export class IntroduccionCrtasPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad IntroduccionCrtasPage');
   }
-
+    irCartas(){
+        this.navCtrl.push(CartasPage);
+    }
 }

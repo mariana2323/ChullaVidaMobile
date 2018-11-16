@@ -14,5 +14,10 @@
 
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item *ngFor="let jugador of jugadores?.data">
+      <h2>{{jugador.apodo}}</h2>
+      <h1>{{jugador.nombre}}</h1>
+    </ion-item>
+  </ion-list>
 </ion-content>
