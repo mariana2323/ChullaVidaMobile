@@ -15,36 +15,34 @@
 <ion-content padding>
     <ion-list>
         <ion-item *ngFor="let jugador of jugadores?.data">
-            <h2>{{jugador.apodo}}</h2>
-            <h1>{{jugador.nombre}}</h1>
+            <h1>{{jugador.apodo}}</h1>
+            <h1>{{jugador.nombre}} {{jugador.apellido}}</h1>
+            <ion-icon name="close-circle" (click)="deleteJug(jugador.id)"></ion-icon>
         </ion-item>
     </ion-list>
-    <ion-list inset>
+    <form (ngSubmit)="saveJug()">
 
         <ion-item>
             <ion-label>Apodo</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input type="text" [(ngModel)]="user.apodo" name="apodo"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label>Nombre</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input type="text" [(ngModel)]="user.nombre" name="nombre"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label>Apellido</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input type="text" [(ngModel)]="user.apellido" name="apellido"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label>Fecha de nacimiento</ion-label>
-            <ion-input type="date"></ion-input>
+            <ion-input type="date" [(ngModel)]="user.fecha" name="fecha"></ion-input>
         </ion-item>
-        <ion-buttons start>
-            <button ion-button icon-only>
-                <ion-icon name="add-circle"></ion-icon>
-            </button>
-        </ion-buttons>
-
-    </ion-list>
+        <button ion-button icon-only type="submit">
+            <ion-icon name="add-circle"></ion-icon>
+        </button>
+    </form>
 </ion-content>
