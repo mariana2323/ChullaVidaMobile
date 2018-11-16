@@ -13,8 +13,27 @@
 </ion-header>
 
 
-
 <ion-content padding>
+
+  <ion-card style="align-content: center">
+    <button *ngFor="let regla of reglas?.data" >
+      <h2>{{regla.r1}}</h2>
+    <img class="dado_personalizado1" src="https://photy.org/photos/yellow-green-bkg-vectorportal.jpg"/>
+    </button>
+    <button>
+      <img class="dado_personalizado1" src="https://photy.org/photos/yellow-green-bkg-vectorportal.jpg" />
+    </button>
+    <button>
+    <img class="dado_personalizado2" src="http://image.graphic-idea.com/big/40/glowing-abstract-backgrounds-design-vector-39571.jpg"/>
+    </button>
+    <button>
+      <img class="dado_personalizado1" src="https://photy.org/photos/yellow-green-bkg-vectorportal.jpg" />
+    </button>
+    <button>
+      <img class="dado_personalizado2" src="http://image.graphic-idea.com/big/40/glowing-abstract-backgrounds-design-vector-39571.jpg"/>
+    </button>
+
+  </ion-card>
 
   <ion-row align-item-center>
     <ion-col *ngFor="let item of misoficios" col-6 col-md align-self-center class="animated slideInUp">
@@ -27,10 +46,12 @@
     </ion-col>
   </ion-row>
 
-
   <ion-list>
     <ion-item *ngFor="let jugador of jugadores?.data">
       <h2>{{jugador.apodo}}</h2>
     </ion-item>
   </ion-list>
+
+  <button ion-button class="boton_personalizado" (click)="irDadosIntroduccion()">LANZAR DADOS</button>
+
 </ion-content>
