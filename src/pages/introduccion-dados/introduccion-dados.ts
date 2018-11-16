@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {DadosPage} from "../../pages/dados/dados";
 
 /**
  * Generated class for the IntroduccionDadosPage page.
@@ -21,5 +22,9 @@ export class IntroduccionDadosPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad IntroduccionDadosPage');
   }
-
+    irDados(){
+        this.navCtrl.push(DadosPage);
+    }
 }
+
+

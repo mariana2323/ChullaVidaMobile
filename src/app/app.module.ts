@@ -17,6 +17,9 @@ import {IntroduccionRuletaPage} from "../pages/introduccion-ruleta/introduccion-
 import {HttpClientModule} from "@angular/common/http";
 import { JugadorServiceProvider } from '../providers/jugador-service/jugador-service';
 import { RuletaServiceProvider } from '../providers/ruleta-service/ruleta-service';
+import { DadoServiceProvider } from '../providers/dado-service/dado-service';
+import { DadosPage} from '../pages/dados/dados';
+import {IntroduccionDadosPage} from "../pages/introduccion-dados/introduccion-dados";
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { RuletaServiceProvider } from '../providers/ruleta-service/ruleta-servic
       JugadoresPage,
       PuntajesPage,
       IntroduccionRuletaPage,
-      RuletaPage
+      RuletaPage,
+      DadosPage,
+      IntroduccionDadosPage
   ],
   imports: [
     BrowserModule,
@@ -45,14 +50,17 @@ import { RuletaServiceProvider } from '../providers/ruleta-service/ruleta-servic
       JugadoresPage,
       PuntajesPage,
       IntroduccionRuletaPage,
-      RuletaPage
+      RuletaPage,
+      DadosPage,
+      IntroduccionDadosPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     JugadorServiceProvider,
-    RuletaServiceProvider
+    RuletaServiceProvider,
+    DadoServiceProvider
   ]
 })
 export class AppModule {}
