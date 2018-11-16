@@ -16,14 +16,15 @@ import {CartasServiceProvider} from "../../providers/cartas-service/cartas-servi
 })
 export class CartasPage {
   jugadores: any;
+  cartas:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public CartasServiceProvider: CartasServiceProvider) {
   }
 
   ionViewDidLoad() {
-      this.CartasServiceProvider.getJugadores()
+      this.CartasServiceProvider.getCartas()
           .subscribe(
               (data)=> {
-                  this.jugadores = data;
+                  this.cartas = data;
               },
               (error) => {
                   console.log(error);

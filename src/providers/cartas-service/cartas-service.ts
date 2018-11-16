@@ -16,8 +16,8 @@ export class CartasServiceProvider {
           this.basepath = "http://192.168.0.8:8100/api"
       }
   }
-    getJugadores(){
-        return this.http.get(this.basepath.concat('/consultarjugadores'));
+    getCartas(){
+        return this.http.get(this.basepath.concat('/regla'));
     }
 
 }
