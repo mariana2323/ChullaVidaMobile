@@ -13,11 +13,35 @@ export class JugadorServiceProvider {
   basepath = "/api"
   constructor(public http: HttpClient, private _platform: Platform) {
     if (this._platform.is("cordova")){
-      this.basepath = "http://192.168.32.146:8100/api"
+      this.basepath = "http://192.168.0.15:8100/api"
     }
   }
   getJugadores(){
     return this.http.get(this.basepath.concat('/consultarjugadores'));
   }
+  saveJugadores(data){
+      return new Promise((resolve, reject) => {
+          this.http.post(this.basepath.concat('/agregarjugador'), JSON.stringify(data), {
+              headers: { 'Content-Type': 'application/json' }
+          }).subscribe(data => {
+              resolve(data);
+          }, (err) => {
+              console.log(JSON.stringify(data));
+              reject(err);
+          });
+      });
+  }
+    deleteJugadores(data){
+        return new Promise((resolve, reject) => {
+            this.http.delete(this.basepath.concat('/eliminarjugador/'+data), {
+                headers: { 'Content-Type': 'application/json' }
+            }).subscribe(data => {
+                resolve(data);
+            }, (err) => {
+                console.log(JSON.stringify(data));
+                reject(err);
+            });
+        });
+    }
 
 }

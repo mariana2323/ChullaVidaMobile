@@ -16,6 +16,7 @@ import { JugadorServiceProvider} from "../../providers/jugador-service/jugador-s
 })
 export class JugadoresPage {
   jugadores: any;
+  user = { id: 0, apodo: '', nombre: '', apellido: '', fecha:''};
   constructor(public navCtrl: NavController,  public navParams: NavParams, public JugadorServiceProvider: JugadorServiceProvider) {
   }
 
@@ -29,6 +30,20 @@ export class JugadoresPage {
               console.log(error);
             }
         )
+  }
+  saveJug(){
+      this.JugadorServiceProvider.saveJugadores(this.user).then((result) => {
+          console.log(result);
+      }, (err) => {
+          console.log(err);
+      });
+  }
+  deleteJug(id){
+      this.JugadorServiceProvider.deleteJugadores(id).then((result) => {
+          console.log(result);
+      }, (err) => {
+          console.log(err);
+      });
   }
 
 }

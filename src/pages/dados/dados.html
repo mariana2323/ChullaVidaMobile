@@ -13,11 +13,24 @@
 </ion-header>
 
 
+
 <ion-content padding>
+
+  <ion-row align-item-center>
+    <ion-col *ngFor="let item of misoficios" col-6 col-md align-self-center class="animated slideInUp">
+      <button class="boton_personalizado" (click)="openDetallesPage(item)">
+
+        <img src="assets/imgs/{{item.nombre}}.png" />
+        {{ item.nombre }}
+        <!-- {{ item | json}}-->
+      </button>
+    </ion-col>
+  </ion-row>
+
+
   <ion-list>
     <ion-item *ngFor="let jugador of jugadores?.data">
       <h2>{{jugador.apodo}}</h2>
-
     </ion-item>
   </ion-list>
 </ion-content>
