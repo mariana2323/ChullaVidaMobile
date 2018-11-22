@@ -5,19 +5,31 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>ruleta</ion-title>
+    <ion-title>Ruleta</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
+<ion-content padding center text-center>
+  <button ion-button round>Girar</button>
   <ion-list>
-    <ion-item *ngFor="let jugador of jugadores?.data">
-      <h2>{{jugador.apodo}}</h2>
-
+    <ion-item>
+      <ion-avatar item-start="">
+        <img src="https://i0.wp.com/significadodeloscolores.info/wp-content/uploads/2014/08/color-amarillo.png?resize=400%2C400">
+      </ion-avatar>
+      <h2>Reto 1</h2>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start="">
+        <img src="https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/630x315/format/jpg/quality/85/http%3A%2F%2Fi.huffpost.com%2Fgen%2F2507856%2Fimages%2Fn-AZUL-KLEIN-628x314.jpg">
+      </ion-avatar>
+      <h2>Reto 2</h2>
     </ion-item>
   </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3="">Jugador</ion-col>
+      <ion-col col-2=""><button ion-button="">✓</button></ion-col>
+      <ion-col col-2=""><button ion-button="" color="danger">x</button></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
