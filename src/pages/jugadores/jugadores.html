@@ -15,9 +15,11 @@
 <ion-content padding>
     <ion-list>
         <ion-item *ngFor="let jugador of jugadores?.data">
-            <h1>{{jugador.apodo}}</h1>
-            <h1>{{jugador.nombre}} {{jugador.apellido}}</h1>
-            <ion-icon name="close-circle" (click)="deleteJug(jugador.id)"></ion-icon>
+            <p>{{jugador.apodo}}</p>
+            <p>{{jugador.nombre}} {{jugador.apellido}}
+                <ion-icon name="close-circle" (click)="deleteJug(jugador.id)"></ion-icon>
+            </p>
+
         </ion-item>
     </ion-list>
     <form (ngSubmit)="saveJug()">
