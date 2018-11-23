@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {JugadoresPage} from "../../pages/jugadores/jugadores";
+import {MenuPuntajesPage} from "../menu-puntajes/menu-puntajes";
 
 @Component({
   selector: 'page-home',
@@ -13,6 +14,9 @@ export class HomePage {
   }
   irJugadores(){
     this.navCtrl.push(JugadoresPage);
+  }
+  irMenuPuntajes(){
+      this.navCtrl.push(MenuPuntajesPage);
   }
 
 }

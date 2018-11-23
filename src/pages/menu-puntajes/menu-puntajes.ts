@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {PuntajesPage} from "../puntajes/puntajes";
+import {ServicePuntajesProvider} from "../../providers/puntajes-service/puntajes-service";
 
 /**
  * Generated class for the MenuPuntajesPage page.
@@ -14,12 +16,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'menu-puntajes.html',
 })
 export class MenuPuntajesPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  puntajes: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ServicePuntajesProvider: ServicePuntajesProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPuntajesPage');
+  }
+  irPuntajes(data){
+      this.navCtrl.push(PuntajesPage);
+      this.ServicePuntajesProvider.getPuntajesTop5(data)
+          .subscribe(
+              (data)=> {
+                  this.puntajes = data;
+              },
+              (error) => {
+                  console.log(error);
+              }
+          )
   }
 
 }
