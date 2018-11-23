@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {MenuPuntajesPage} from "../menu-puntajes/menu-puntajes";
+import {MenuPuntajesPage} from "../../pages/menu-puntajes/menu-puntajes";
 
 /**
  * Generated class for the PuntajesPage page.
@@ -16,12 +16,12 @@ import {MenuPuntajesPage} from "../menu-puntajes/menu-puntajes";
 })
 export class PuntajesPage {
   puntajesA: any;
-  public MenuPuntajesPage: MenuPuntajesPage
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public MenuPuntajesPage: MenuPuntajesPage) {
+    console.log('prueba');
   }
 
   ionViewDidLoad() {
-    this.puntajesA = this.MenuPuntajesPage.puntajes;
+    this.puntajesA = this.MenuPuntajesPage.getPuntajes();
   }
 
 }

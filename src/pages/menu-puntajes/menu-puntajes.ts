@@ -35,5 +35,8 @@ export class MenuPuntajesPage {
               }
           )
   }
+  getPuntajes(){
+      return this.puntajes;
+  }
 
 }

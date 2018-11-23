@@ -46,7 +46,8 @@ import {MenuPuntajesPage} from "../pages/menu-puntajes/menu-puntajes";
   imports: [
     BrowserModule,
       HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
