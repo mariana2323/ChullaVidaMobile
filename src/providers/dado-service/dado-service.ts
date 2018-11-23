@@ -12,9 +12,10 @@ export class DadoServiceProvider {
   basepath = "/api"
   constructor(public http: HttpClient, private _platform: Platform) {
       if (this._platform.is("cordova")){
-          this.basepath = "http://192.168.1.17:8100/api"
+          this.basepath = "http://192.168.40.230:8100/api"
       }
   }
+
   getJugadores(){
       return this.http.get(this.basepath.concat('/consultarjugadores'));
   }
