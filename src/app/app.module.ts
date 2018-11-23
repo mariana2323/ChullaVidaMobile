@@ -23,6 +23,7 @@ import {IntroduccionDadosPage} from "../pages/introduccion-dados/introduccion-da
 import {IntroduccionCrtasPage} from "../pages/introduccion-crtas/introduccion-crtas";
 import { CartasPage} from '../pages/cartas/cartas';
 import { CartasServiceProvider } from '../providers/cartas-service/cartas-service';
+import { ServicePuntajesProvider } from '../providers/puntajes-service/puntajes-service';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { CartasServiceProvider } from '../providers/cartas-service/cartas-servic
     JugadorServiceProvider,
     RuletaServiceProvider,
     DadoServiceProvider,
-    CartasServiceProvider
+    CartasServiceProvider,
+    ServicePuntajesProvider
   ]
 })
 export class AppModule {}
