@@ -1,0 +1,36 @@
+<!--
+  Generated template for the PuntajesDadosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>PUNTAJES DE DADOS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding><ion-list>
+  <ion-item-divider color="light">¡¡¡TOP SCORE!!!</ion-item-divider>
+  <ion-avatar item-start>
+    <img src="../../assets/imgs/cup.png">
+  </ion-avatar>
+  <ion-item *ngFor="let puntaje1 of puntajes2?.data">
+    <h1>¡GANASTE!</h1>
+    <h2>{{puntaje1.apodo}}</h2>
+    <p>Llegaste al nivel {{puntaje1.puntajes_dados}} de borrachos!</p>
+    <p>¡Cuidado si manejas {{puntaje1.apodo}}, se te puede regar la cerveza!</p>
+  </ion-item>
+  <ion-item-divider color="light">¡¡¡TOP 5!!!</ion-item-divider>
+  <ion-avatar item-start align-items-center>
+    <img src="../../assets/imgs/podium.png">
+  </ion-avatar>
+  <ion-item *ngFor="let puntaje2 of puntajes1?.data">
+    <h2>{{puntaje2.apodo}}</h2>
+    <p>Llegaste al nivel {{puntaje2.puntajes_dados}} de borrachos!</p>
+  </ion-item>
+</ion-list>
+</ion-content>

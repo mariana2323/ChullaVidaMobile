@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {PuntajesPage} from "../puntajes/puntajes";
 import {ServicePuntajesProvider} from "../../providers/puntajes-service/puntajes-service";
+import {PuntajesDadosPage} from "../puntajes-dados/puntajes-dados";
+import {PuntajeCartasPage} from "../puntaje-cartas/puntaje-cartas";
 
 /**
  * Generated class for the MenuPuntajesPage page.
@@ -23,20 +25,14 @@ export class MenuPuntajesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPuntajesPage');
   }
-  irPuntajes(data){
-      this.navCtrl.push(PuntajesPage);
-      this.ServicePuntajesProvider.getPuntajesTop5(data)
-          .subscribe(
-              (data)=> {
-                  this.puntajes = data;
-              },
-              (error) => {
-                  console.log(error);
-              }
-          )
-  }
-  getPuntajes(){
-      return this.puntajes;
-  }
+    irPuntajesRuleta(){
+        this.navCtrl.push(PuntajesPage);
+    }
+    irPuntajesDados(){
+        this.navCtrl.push(PuntajesDadosPage);
+    }
+    irPuntajesCartas(){
+        this.navCtrl.push(PuntajeCartasPage);
+    }
 
 }

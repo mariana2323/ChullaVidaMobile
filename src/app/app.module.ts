@@ -25,6 +25,8 @@ import { CartasPage} from '../pages/cartas/cartas';
 import { CartasServiceProvider } from '../providers/cartas-service/cartas-service';
 import { ServicePuntajesProvider } from '../providers/puntajes-service/puntajes-service';
 import {MenuPuntajesPage} from "../pages/menu-puntajes/menu-puntajes";
+import {PuntajesDadosPage} from "../pages/puntajes-dados/puntajes-dados";
+import {PuntajeCartasPage} from "../pages/puntaje-cartas/puntaje-cartas";
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {MenuPuntajesPage} from "../pages/menu-puntajes/menu-puntajes";
       IntroduccionDadosPage,
       IntroduccionCrtasPage,
       CartasPage,
-      MenuPuntajesPage
+      MenuPuntajesPage,
+      PuntajesDadosPage,
+      PuntajeCartasPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,9 @@ import {MenuPuntajesPage} from "../pages/menu-puntajes/menu-puntajes";
       IntroduccionDadosPage,
       IntroduccionCrtasPage,
       CartasPage,
-      MenuPuntajesPage
+      MenuPuntajesPage,
+      PuntajesDadosPage,
+      PuntajeCartasPage
   ],
   providers: [
     StatusBar,

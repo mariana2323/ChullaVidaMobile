@@ -89,7 +89,7 @@
     <ion-row>
       <ion-list>
         <ion-item *ngFor="let jugador of jugadores?.data">
-          <p>{{jugador.apodo}}</p>
+          <p>{{jugador.apodo}}
             <ion-icon name="close-circle" (click)="deleteJug(jugador.id)"></ion-icon>
           </p>
         </ion-item>
