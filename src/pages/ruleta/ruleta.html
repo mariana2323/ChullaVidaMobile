@@ -157,6 +157,37 @@ function config($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
      }
     });
 
-$urlRouterProvider.otherwise('/home');
 
+$urlRouterProvider.otherwise('/home');
 };-->
+
+<!--
+
+void setup() {
+  int j = 0 ;
+  for ( j = 2 ; j < 14 ; j++)
+    pinMode( j , OUTPUT) ;
+}
+
+void loop() {
+  int i = 0;
+  int duracion=60;
+  for ( i = 2 ; i < 14 ; i++){
+    long randomico = random(12,duracion);
+    long randomico2   = random(12,duracion);
+    digitalWrite( i , HIGH);
+    if(randomico==randomico2)
+    {
+      delay(5000);
+    }
+    else{
+      delay (50);
+    }
+    digitalWrite( i , LOW);
+    delay (50) ;
+
+  }
+}
+-->
+
+
