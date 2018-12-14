@@ -17,7 +17,7 @@ export class CartasServiceProvider {
       }
   }
     getCartas(){
-        return this.http.get(this.basepath.concat('/regla'));
+        return this.http.get(this.basepath.concat('/juegoCascada'));
     }
 
 }
