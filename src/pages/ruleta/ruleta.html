@@ -105,63 +105,22 @@
   </ion-grid>
 </ion-content>
 
-<!--.run(function($ionicPlatform) {
-    $ionicPlatform.ready(function() {
 
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);}
-    if (window.StatusBar) {
+  #include <LiquidCrystal.h>
+  #include <SoftwareSerial.h>
 
-    StatusBar.styleLightContent();}
-   });
+  #define RxD 0
+  #define TxD 1
 
-angular
-  .module("Ruleta")
-  .config(config);
+  #define KEY 5
 
-function config($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  #define maxLCD 16
+  #define maxBuffer 200
 
-  $ionicConfigProvider.tabs.position('bottom');
-  $stateProvider
-     .state('home', {
-     url: '/home',
-     templateUrl: 'js/app/html/home.html',
-     controller: 'MainCtrl'
-   })
-  .state('disconnect', {
-      url: '/disconnect',
-      templateUrl: 'js/app/html/disconnect.html',
-      controller: 'DisconnectCtrl'
-   })
-   .state('tabs', {
-      url: '/tab',
-      abstract: true,
-      templateUrl: 'js/app/html/tabs.html'
-   })
-  .state('tabs.connect', {
-      url: '/connect/{id}',
-      views: {
-      'connect': {
-       templateUrl: 'js/app/html/connect.html',
-       controller: 'Connect'
-     }
-    }
-  })
-
-   .state('tabs.about', {
-       url: '/about',
-       views: {
-       'about': {
-       templateUrl: 'js/app/html/about.html'
-      }
-     }
-    });
+  SoftwareSerial BTSerial(RxD, TxD);
+  LiquidCrystal lcd(7, 8, 9, 10, 11 , 12);
 
 
-$urlRouterProvider.otherwise('/home');
-};-->
-
-<!--
 
 void setup() {
   int j = 0 ;
@@ -170,6 +129,21 @@ void setup() {
 }
 
 void loop() {
+
+   while (BTSerial.available() > 0)    {
+   char r = BTSerial.read();
+   if (r == '\n')
+   {
+     Serial.print("Arduino Recibió: ");
+     Serial.print(inData);
+     inDisplay = inData;
+     inData = "";
+   }
+   else
+       inData += r;
+   }
+
+
   int i = 0;
   int duracion=60;
   for ( i = 2 ; i < 14 ; i++){
@@ -188,6 +162,6 @@ void loop() {
 
   }
 }
--->
+
 
 
