@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Platform} from "ionic-angular";
+import {JugadorServiceProvider} from "../jugador-service/jugador-service";
 
 /*
   Generated class for the RuletaServiceProvider provider.
@@ -11,9 +12,9 @@ import {Platform} from "ionic-angular";
 @Injectable()
 export class RuletaServiceProvider {
     basepath = "/api"
-  constructor(public http: HttpClient, private _platform: Platform) {
+  constructor(public http: HttpClient, private _platform: Platform,public RuletaServiceProvider: RuletaServiceProvider,) {
       if (this._platform.is("cordova")){
-          this.basepath = "http://192.168.0.15:8100/api"
+          this.basepath = "http://172.16.0.193:8100/api"
       }
   }
   jugadores(){
