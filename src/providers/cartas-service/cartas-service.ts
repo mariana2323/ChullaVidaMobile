@@ -13,11 +13,11 @@ export class CartasServiceProvider {
   basepath = "/api"
   constructor(public http: HttpClient, private _platform: Platform) {
       if (this._platform.is("cordova")){
-          this.basepath = "http://192.168.0.15:8100/api"
+          this.basepath = "http://192.168.0.8:8100/api"
       }
   }
     getCartas(){
-        return this.http.get(this.basepath.concat('/regla'));
+        return this.http.get(this.basepath.concat('/juegoCascada'));
     }
 
 }
