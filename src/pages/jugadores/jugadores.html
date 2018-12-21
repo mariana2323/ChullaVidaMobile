@@ -13,7 +13,8 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
+
+    <ion-list  *ngIf="jugadores?.data.length > 0">
         <ion-item *ngFor="let jugador of jugadores?.data">
             <ion-avatar item-start>
                 <img src="../../assets/imgs/usuario.png">
@@ -46,7 +47,7 @@
             <ion-label>Fecha de nacimiento</ion-label>
             <ion-input type="date" [(ngModel)]="user.fecha" name="fecha"></ion-input>
         </ion-item>
-        <button ion-button icon-only type="submit">
+        <button ion-button icon-only type="submit" >
             <ion-icon name="add-circle"></ion-icon>
         </button>
     </form>

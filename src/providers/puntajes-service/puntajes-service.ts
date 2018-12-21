@@ -13,7 +13,7 @@ export class ServicePuntajesProvider {
   basepath = "/api"
   constructor(public http: HttpClient, private _platform: Platform) {
       if (this._platform.is("cordova")){
-          this.basepath = "http://192.168.0.15:8100/api"
+          this.basepath = "http://192.168.0.16:8100/api"
       }
   }
   getPuntajesTop5(data){
