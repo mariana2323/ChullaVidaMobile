@@ -12,7 +12,7 @@ import {JugadorServiceProvider} from "../jugador-service/jugador-service";
 @Injectable()
 export class RuletaServiceProvider {
     basepath = "/api"
-  constructor(public http: HttpClient, private _platform: Platform,public RuletaServiceProvider: RuletaServiceProvider,) {
+  constructor(public http: HttpClient, private _platform: Platform) {
       if (this._platform.is("cordova")){
           this.basepath = "http://172.16.0.193:8100/api"
       }

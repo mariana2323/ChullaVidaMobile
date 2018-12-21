@@ -17,7 +17,9 @@ import { RuletaServiceProvider} from "../../providers/ruleta-service/ruleta-serv
 export class RuletaPage {
   jugadores: any;
   user = { id: 0, apodo: '', nombre: '', apellido: '', fecha:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams, public RuletaServiceProvider: RuletaServiceProvider) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public RuletaServiceProvider: RuletaServiceProvider) {
   }
 
   ionViewDidLoad() {
