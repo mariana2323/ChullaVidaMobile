@@ -20,5 +20,30 @@ export class RuletaServiceProvider {
   jugadores(){
       return this.http.get(this.basepath.concat('/consultarjugadores'));
   }
+    saveJugadores(data){
+        return new Promise((resolve, reject) => {
+            this.http.post(this.basepath.concat('/agregarjugador'), JSON.stringify(data), {
+                headers: { 'Content-Type': 'application/json' }
+            }).subscribe(data => {
+                resolve(data);
+            }, (err) => {
+                console.log(JSON.stringify(data));
+                reject(err);
+            });
+        });
+    }
+    deleteJugadores(data){
+        return new Promise((resolve, reject) => {
+            this.http.delete(this.basepath.concat('/eliminarjugador/'+data), {
+                headers: { 'Content-Type': 'application/json' }
+            }).subscribe(data => {
+                resolve(data);
+            }, (err) => {
+                console.log(JSON.stringify(data));
+                reject(err);
+            });
+        });
+    }
 
+}
 }
