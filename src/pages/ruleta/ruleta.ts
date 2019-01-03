@@ -16,7 +16,10 @@ import { RuletaServiceProvider} from "../../providers/ruleta-service/ruleta-serv
 })
 export class RuletaPage {
   jugadores: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public RuletaServiceProvider: RuletaServiceProvider) {
+  user = { id: 0, apodo: '', nombre: '', apellido: '', fecha:''};
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public RuletaServiceProvider: RuletaServiceProvider) {
   }
 
   ionViewDidLoad() {
@@ -30,5 +33,15 @@ export class RuletaPage {
               }
           )
   }
-
+    ionViewDidEnter() {
+        this.RuletaServiceProvider.jugadores()
+            .subscribe(
+                (data)=> {
+                    this.jugadores = data;
+                },
+                (error) => {
+                    console.log(error);
+                }
+            )
+    }
 }

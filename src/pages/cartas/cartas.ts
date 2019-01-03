@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+import {CartaJugadorPage} from "../carta-jugador/carta-jugador";
+
 import {CartasServiceProvider} from "../../providers/cartas-service/cartas-service";
 
 /**
@@ -13,23 +16,30 @@ import {CartasServiceProvider} from "../../providers/cartas-service/cartas-servi
 @Component({
   selector: 'page-cartas',
   templateUrl: 'cartas.html',
+
 })
 export class CartasPage {
-  jugadores: any;
+
   cartas:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public CartasServiceProvider: CartasServiceProvider) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public servProv:CartasServiceProvider) {
   }
 
-  ionViewDidLoad() {
-      this.CartasServiceProvider.getCartas()
-          .subscribe(
-              (data)=> {
-                  this.cartas = data;
-              },
-              (error) => {
-                  console.log(error);
-              }
-          )
-  }
+
+
+    irCartaJugador(){
+
+        this.servProv.getCartas()
+            .subscribe(
+                (data) => {
+                    this.cartas = data;
+                },
+                (error) => {
+                    console.log(error);
+                }
+            )
+        this.navCtrl.setRoot(CartaJugadorPage,{cartas:this.cartas});
+    }
+
 
 }
