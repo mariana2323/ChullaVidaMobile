@@ -7,25 +7,13 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>jugadores</ion-title>
+    <div text-center><ion-title>jugadores</ion-title></div>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
 
-    <ion-list  *ngIf="jugadores?.data.length > 0">
-        <ion-item *ngFor="let jugador of jugadores?.data">
-            <ion-avatar item-start>
-                <img src="../../assets/imgs/usuario.png">
-            </ion-avatar>
-            <p>{{jugador.apodo}}</p>
-            <p>{{jugador.nombre}} {{jugador.apellido}}
-                <ion-icon name="close-circle" (click)="deleteJug(jugador.id)"></ion-icon>
-            </p>
-
-        </ion-item>
-    </ion-list>
     <form (ngSubmit)="saveJug()">
 
         <ion-item>
@@ -51,4 +39,18 @@
             <ion-icon name="add-circle"></ion-icon>
         </button>
     </form>
+    <div margin>
+        <ion-list  *ngIf="jugadores?.data.length > 0">
+            <ion-item *ngFor="let jugador of jugadores?.data">
+                <ion-avatar item-start>
+                    <img src="../../assets/imgs/usuario.png">
+                </ion-avatar>
+                <p>{{jugador.apodo}}</p>
+                <p>{{jugador.nombre}} {{jugador.apellido}}
+                    <ion-icon name="close-circle" (click)="deleteJug(jugador.id)"></ion-icon>
+                </p>
+
+            </ion-item>
+        </ion-list>
+    </div>
 </ion-content>
