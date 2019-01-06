@@ -9,14 +9,14 @@ import {Platform} from "ionic-angular";
 */
 @Injectable()
 export class DadoServiceProvider {
-  basepath = "/api"
+  basepath = ""
   constructor(public http: HttpClient, private _platform: Platform) {
-      if (this._platform.is("cordova")){
+      /*if (this._platform.is("cordova")){
           this.basepath = "http://192.168.0.15:8100/api"
-      }
+      }*/
   }
 
-  getJugadores(){
-      return this.http.get(this.basepath.concat('/consultarjugadores'));
+  getDados(){
+      return this.http.get(this.basepath.concat('http://localhost:8000/api/juegoDados'));
   }
 }

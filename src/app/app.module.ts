@@ -28,6 +28,7 @@ import {MenuPuntajesPage} from "../pages/menu-puntajes/menu-puntajes";
 import {PuntajesDadosPage} from "../pages/puntajes-dados/puntajes-dados";
 import {PuntajeCartasPage} from "../pages/puntaje-cartas/puntaje-cartas";
 import {CartaJugadorPage} from "../pages/carta-jugador/carta-jugador";
+import {DadoJugadorPage} from "../pages/dado-jugador/dado-jugador";
 @NgModule({
   declarations: [
     MyApp,
@@ -44,6 +45,7 @@ import {CartaJugadorPage} from "../pages/carta-jugador/carta-jugador";
       IntroduccionCrtasPage,
       CartasPage,
       CartaJugadorPage,
+      DadoJugadorPage,
       MenuPuntajesPage,
       PuntajesDadosPage,
       PuntajeCartasPage
@@ -70,6 +72,7 @@ import {CartaJugadorPage} from "../pages/carta-jugador/carta-jugador";
       IntroduccionCrtasPage,
       CartasPage,
       CartaJugadorPage,
+      DadoJugadorPage,
       MenuPuntajesPage,
       PuntajesDadosPage,
       PuntajeCartasPage

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DadoServiceProvider } from '../../providers/dado-service/dado-service';
+import {DadoJugadorPage} from '../dado-jugador/dado-jugador';
+
 
 /**
  * Generated class for the DadosPage page.
@@ -13,21 +15,24 @@ import { DadoServiceProvider } from '../../providers/dado-service/dado-service';
 @Component({
   selector: 'page-dados',
   templateUrl: 'dados.html',
+
 })
 export class DadosPage {
-  jugadores: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public DadoServiceProvider: DadoServiceProvider) {
+  dados: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public servProv: DadoServiceProvider) {
   }
-    ionViewDidLoad() {
-        this.DadoServiceProvider.getJugadores()
+    irDadoJugador(){
+        this.servProv.getDados()
             .subscribe(
-                (data)=> {
-                    this.jugadores = data;
+                (data) => {
+                    this.dados = data;
                 },
                 (error) => {
                     console.log(error);
                 }
             )
+        this.navCtrl.setRoot(DadoJugadorPage,{dados:this.dados});
     }
 }
+
 
