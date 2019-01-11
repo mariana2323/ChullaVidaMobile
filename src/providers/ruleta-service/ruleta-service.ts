@@ -45,4 +45,8 @@ export class RuletaServiceProvider {
         });
     }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }
