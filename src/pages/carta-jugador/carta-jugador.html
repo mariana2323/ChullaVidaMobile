@@ -6,8 +6,10 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>CASCADA</ion-title>
+    <button id="btnMenu" ion-button color="calm" round outline (click)="volver()">VOLVER</button >
+
   </ion-navbar>
 
 </ion-header>
@@ -15,33 +17,40 @@
 
 <ion-content padding>
 
-  <ion-card>
 
+  <ion-card>
+    <div>Debes de voltear la carta</div>
     <img id="imagenCarta" src="../../assets/imgs/carta-reverso.png" />
     <div class="card-title">
 
 
-      <div  id="nombreCarta" text="" hidden>
+      <div  id="nombreCarta" text="" hidden text-center>
         <ion-icon name="logo-freebsd-devil"></ion-icon>
         {{cartas?.data[cont][0]["numero"]}} {{cartas?.data[cont][0]["palo"]}}
       </div>
     </div>
-
-    <div id="reglaCarta" class="card-subtitle" hidden>
-      <ion-icon name="beer"></ion-icon>
-      {{cartas?.data[cont][1]["descripcion"]}}
-    </div>
-
-    <div id="jugador" class="card-subtitle" hidden>
+    <div id="jugador" class="card-subtitle" hidden text-center>
       <ion-icon name="person"></ion-icon>
       {{cartas?.data[cont][2]["apodo"]}}
 
     </div>
+    <div id="reglaCarta" class="card-subtitle" hidden text-center>
+      <ion-icon name="beer"></ion-icon>
+      {{cartas?.data[cont][1]["descripcion"]}}
+      <br/>
+      <button   id="btnDetalle"ion-button color="calm" icon-beer round outline (click)="presentAlert()" ><ion-icon name="eye"></ion-icon></button >
+
+    </div>
 
 
 
-    <button ion-button color="dark" round outline (click)="cambiar()">VOLTEAR</button >
-    <button id="btnVoltear" ion-button color="dark" round outline (click)="sumar()" [disabled]="!isenabled"  >SIGUIENTE</button >
+
+
+    <button id="btnVirar" ion-button color="calm" round outline (click)="cambiar()">VOLTEAR</button >
+
+    <button id="btnVoltear" ion-button color="royal" round outline (click)="sumar()" [disabled]="!isenabled"  >SIGUIENTE</button >
+
+
   </ion-card>
 
 </ion-content>
