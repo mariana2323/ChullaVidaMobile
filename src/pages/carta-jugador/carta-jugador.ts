@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {CartasServiceProvider} from "../../providers/cartas-service/cartas-service";
+import { AlertController } from 'ionic-angular';
+import {ContactPage} from "../contact/contact";
 /**
  * Generated class for the CartaJugadorPage page.
  *
@@ -15,10 +17,11 @@ import {CartasServiceProvider} from "../../providers/cartas-service/cartas-servi
 })
 export class CartaJugadorPage {
 cartas:any;
+carta=0;
 cont=0;
 isenabled=false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public servProv:CartasServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public servProv:CartasServiceProvider,private alertCtrl: AlertController) {
       this.servProv.getCartas()
           .subscribe(
               (data) => {
@@ -42,9 +45,19 @@ isenabled=false;
       document.getElementById('reglaCarta').removeAttribute('hidden');
       document.getElementById('jugador').removeAttribute('hidden');
       document.getElementById('btnVoltear').removeAttribute('hidden');
+      document.getElementById('btnDetalle').removeAttribute('hidenn');
 
         this.isenabled=true;
-
+        if(this.cartas.data[this.cont][0]["numero"]=="K")
+        {
+            this.carta++;
+        }
+        if(this.carta==4)
+        {
+            document.getElementById('btnVoltear').setAttribute('hidden','true');
+            document.getElementById('btnVirar').setAttribute('hidden','true');
+            this.presentAlert2();
+        }
       //document.getElementById('nombreCarta').setAttribute('showing','true');
   }
 
@@ -60,6 +73,8 @@ isenabled=false;
         document.getElementById('reglaCarta').setAttribute('hidden','true');
         document.getElementById('jugador').setAttribute('hidden','true');
         document.getElementById('btnVoltear').setAttribute('disabled','true');
+        document.getElementById('btnDetalle').setAttribute('hidden','true');
+
         this.isenabled=false;
     }
 
@@ -68,6 +83,29 @@ isenabled=false;
 
         var variable=this.cartas.data[this.cont][0]["imagen"];
         return variable;
+    }
+    presentAlert() {
+        var nombre=this.cartas.data[this.cont][1]["descripcion"];
+        var detalle=this.cartas.data[this.cont][1]["detalle"];
+        let alert = this.alertCtrl.create({
+            title: nombre,
+            subTitle: detalle,
+            buttons: ['Ok']
+        });
+        alert.present();
+    }
+    presentAlert2()
+    {
+        let alert = this.alertCtrl.create({
+            title: "Se acabó el juego",
+            subTitle: "Debes de beber todo el vaso!!",
+            buttons: ['Ok']
+        });
+        alert.present();
+    }
+    public volver()
+    {
+        this.navCtrl.push(ContactPage);
     }
 
 
