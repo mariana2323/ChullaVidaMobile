@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-
+import { AboutPage } from '../pages/about/about';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {JugadoresPage} from "../pages/jugadores/jugadores";
@@ -35,6 +35,7 @@ import {DadoJugadorPage} from "../pages/dado-jugador/dado-jugador";
     ContactPage,
     HomePage,
     TabsPage,
+      AboutPage,
       JugadoresPage,
       PuntajesPage,
       IntroduccionRuletaPage,
@@ -62,6 +63,7 @@ import {DadoJugadorPage} from "../pages/dado-jugador/dado-jugador";
     ContactPage,
     HomePage,
     TabsPage,
+      AboutPage,
       JugadoresPage,
       PuntajesPage,
       IntroduccionRuletaPage,
