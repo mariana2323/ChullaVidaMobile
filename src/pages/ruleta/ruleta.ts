@@ -53,7 +53,7 @@ export class RuletaPage {
         setTimeout(() => {
             document.getElementById('btnRegla').removeAttribute('disabled');
             console.log("prueba")
-        }, 20000)
+        }, 10000)
       this.setGirar();
     }
     presentAlertRuleta() {
@@ -64,7 +64,7 @@ export class RuletaPage {
                     console.log(data);
                     console.log(this.pin);
                     var nombre="Reto";
-                    var detalle=this.pin.data[0]["pin"];
+                    var detalle=this.pin.data[0]["descripcion"];
                     console.log("prueba1");
                     console.log(detalle);
                     console.log("prueba2");
