@@ -107,7 +107,4 @@ isenabled=false;
     {
         this.navCtrl.push(ContactPage);
     }
-
-
-
 }

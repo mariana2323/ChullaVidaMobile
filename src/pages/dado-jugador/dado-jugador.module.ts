@@ -14,3 +14,4 @@ import { DadoJugadorPage } from './dado-jugador';
   ]
 })
 export class DadoJugadorPageModule {}
+

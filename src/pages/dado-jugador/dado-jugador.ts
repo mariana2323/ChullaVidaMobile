@@ -1,23 +1,24 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {DadoServiceProvider} from "../../providers/dado-service/dado-service";
-import {DadosPage} from "../dados/dados";
+import {Component, OnInit} from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+import cards from '../../assets/data/card';
+import {Card} from "../../providers/dado-service/dado-service";
+
 
 
 /**
- * Generated class for the CartaJugadorPage page.
+ * Generated class for the RandomCardsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
     selector: 'page-dado-jugador',
     templateUrl: 'dado-jugador.html',
 })
-export class DadoJugadorPage {
-
+export class DadoJugadorPage implements OnInit {
+    cards: Card[];
+    randomCard: Card[];
     public centesimas: number = 0;
     public minutos: number = 59;
     public segundos: number = 0;
@@ -27,7 +28,7 @@ export class DadoJugadorPage {
     public _minutos: string = '00';
     public _segundos: string = '00';
 
-    dado:any;
+    carta:any;
     cont=0;
     isenabled=false;
 
@@ -36,54 +37,22 @@ export class DadoJugadorPage {
     refreshColor = 'light';
 
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public servProv:DadoServiceProvider) {
-        this.servProv.getDados()
-            .subscribe(
-                (data) => {
-                    this.dado = data;
-                },
-                (error) => {
-                    console.log(error);
-                }
-            )
-    }
-    irDados(){
-        this.navCtrl.push(DadosPage);
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
     }
 
-    public cambiar()
-    {
-        var imagen="../../assets/imgs/";
-        var img=this.obtenerImg();
-        imagen=imagen.concat(img).concat(".png");
-        document.getElementById('imagenCarta').setAttribute('src',imagen);
-        document.getElementById('nombreCarta').removeAttribute('hidden');
-        document.getElementById('reglaCarta').removeAttribute('hidden');
-        document.getElementById('jugador').removeAttribute('hidden');
-        document.getElementById('btnVoltear').removeAttribute('hidden');
+    ngOnInit() {
+        this.cards = cards.cards;
 
-        this.isenabled=true;
-        //document.getElementById('nombreCarta').setAttribute('showing','true');
     }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad DadoJugadorPage');
+        console.log(this.cards);
 
-    public sumar()
-    {
-        var imagen="../../assets/imgs/carta-reverso.png";
-        var numero=this.cont++;
-
-        document.getElementById('imagenCarta').setAttribute('src',imagen);
-        document.getElementById('nombreCarta').setAttribute('hidden','true');
-        document.getElementById('reglaCarta').setAttribute('hidden','true');
-        document.getElementById('jugador').setAttribute('hidden','true');
-        document.getElementById('btnVoltear').setAttribute('disabled','true');
-        this.isenabled=false;
     }
-    public obtenerImg()
-    {
-        var variable=this.dado.data[this.cont][0]["imagen"];
-        return variable;
+    getRandom() {
+        let rd = Math.floor(Math.random() * this.cards.length);
+        this.randomCard = [this.cards[rd]];
     }
-
     estadoSwap() {
         this.isRun = !this.isRun;
         if (this.isRun) {
@@ -145,4 +114,5 @@ export class DadoJugadorPage {
         }
 
     }
+
 }
