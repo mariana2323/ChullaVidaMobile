@@ -52,21 +52,14 @@ export class DadoJugadorPage implements OnInit {
     }
 
     public jugadoraleatorio(){
-    if (this.j<this.jugador.length)
+
         this.j++;
     }
     ngOnInit() {
         this.cards = cards.cards;
     }
     ionViewDidLoad() {
-        this.servProv.getJugadores()
-            .subscribe(
-                (data)=>{this.jugador=data},
-                (error)=>{
-                    console.log(error);
-                    this.aux=this.jugador.length;
-                }
-            )
+
     }
     getRandom() {
         let rd = Math.floor(Math.random() * this.cards.length);
