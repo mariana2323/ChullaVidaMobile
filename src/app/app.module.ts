@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -22,6 +21,7 @@ import { DadosPage} from '../pages/dados/dados';
 import {IntroduccionDadosPage} from "../pages/introduccion-dados/introduccion-dados";
 import {IntroduccionCrtasPage} from "../pages/introduccion-crtas/introduccion-crtas";
 import { CartasPage} from '../pages/cartas/cartas';
+import { InicioPage} from '../pages/inicio/inicio';
 import { CartasServiceProvider } from '../providers/cartas-service/cartas-service';
 import { ServicePuntajesProvider } from '../providers/puntajes-service/puntajes-service';
 import {MenuPuntajesPage} from "../pages/menu-puntajes/menu-puntajes";
@@ -32,7 +32,6 @@ import {DadoJugadorPage} from "../pages/dado-jugador/dado-jugador";
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -44,6 +43,7 @@ import {DadoJugadorPage} from "../pages/dado-jugador/dado-jugador";
       IntroduccionDadosPage,
       IntroduccionCrtasPage,
       CartasPage,
+      InicioPage,
       CartaJugadorPage,
       DadoJugadorPage,
       MenuPuntajesPage,
@@ -59,7 +59,6 @@ import {DadoJugadorPage} from "../pages/dado-jugador/dado-jugador";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -71,6 +70,7 @@ import {DadoJugadorPage} from "../pages/dado-jugador/dado-jugador";
       IntroduccionDadosPage,
       IntroduccionCrtasPage,
       CartasPage,
+      InicioPage,
       CartaJugadorPage,
       DadoJugadorPage,
       MenuPuntajesPage,

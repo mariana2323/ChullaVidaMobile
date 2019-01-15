@@ -25,6 +25,9 @@ export class DadoServiceProvider {
   }
 
   getDados(){
-      return this.http.get(this.basepath.concat('http://localhost:8000/api/juegoDados'));
+      return this.http.get(this.basepath.concat('http://servidorchullavida.herokuapp.com/api/juegoDados'));
   }
+    getJugadores(){
+        return this.http.get(this.basepath.concat('http://servidorchullavida.herokuapp.com/api/dadosDesorden'));
+    }
 }

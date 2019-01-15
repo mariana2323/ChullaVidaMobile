@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import cards from '../../assets/data/card';
-import {Card} from "../../providers/dado-service/dado-service";
+import {Card, DadoServiceProvider} from "../../providers/dado-service/dado-service";
+
 
 
 
@@ -29,6 +30,7 @@ export class DadoJugadorPage implements OnInit {
     public _segundos: string = '00';
 
     carta:any;
+    jugador:any;
     cont=0;
     isenabled=false;
 
@@ -37,7 +39,14 @@ export class DadoJugadorPage implements OnInit {
     refreshColor = 'light';
 
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public servProv: DadoServiceProvider) {
+        this.servProv.getJugadores()
+            .subscribe(
+                (data)=>{this.jugador=data},
+                (error)=>{
+                    console.log(error);
+                }
+            )
     }
 
     ngOnInit() {
