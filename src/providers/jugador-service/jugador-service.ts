@@ -13,15 +13,18 @@ export class JugadorServiceProvider {
   basepath = "/api"
   constructor(public http: HttpClient, private _platform: Platform) {
     if (this._platform.is("cordova")){
-      this.basepath = "http://192.168.39.53:8100/api"
+      this.basepath = "servidorchullavida.herokuapp.com/api"
     }
   }
   getJugadores(){
-    return this.http.get(this.basepath.concat('/consultarjugadores'));
+      var resultado = this.http.get('https://servidorchullavida.herokuapp.com/api/consultarjugadores');
+      console.log("resultado 1");
+      console.log(resultado);
+    return resultado;
   }
   saveJugadores(data){
       return new Promise((resolve, reject) => {
-          this.http.post(this.basepath.concat('/agregarjugador'), JSON.stringify(data), {
+          this.http.post('https://servidorchullavida.herokuapp.com/api/agregarjugador', JSON.stringify(data), {
               headers: { 'Content-Type': 'application/json' }
           }).subscribe(data => {
               resolve(data);
@@ -33,7 +36,7 @@ export class JugadorServiceProvider {
   }
     deleteJugadores(data){
         return new Promise((resolve, reject) => {
-            this.http.delete(this.basepath.concat('/eliminarjugador/'+data), {
+            this.http.delete('https://servidorchullavida.herokuapp.com/api/eliminarjugador/'+data, {
                 headers: { 'Content-Type': 'application/json' }
             }).subscribe(data => {
                 resolve(data);
@@ -43,5 +46,4 @@ export class JugadorServiceProvider {
             });
         });
     }
-
 }

@@ -7,15 +7,6 @@ import {Platform} from "ionic-angular";
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-
-export interface Card {
-    id: string;
-    jugador: string;
-    reto1: string;
-    reto2: string;
-    accion: string;
-}
-
 @Injectable()
 export class DadoServiceProvider {
   basepath = ""
@@ -24,7 +15,6 @@ export class DadoServiceProvider {
           this.basepath = "http://192.168.0.15:8100/api"
       }*/
   }
-
 
   getDados(){
       //return this.http.get(this.basepath.concat('http://localhost:8000/api/juegoDados'));

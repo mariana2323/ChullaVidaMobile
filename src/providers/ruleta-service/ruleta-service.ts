@@ -14,15 +14,15 @@ export class RuletaServiceProvider {
     basepath = "/api"
   constructor(public http: HttpClient, private _platform: Platform) {
       if (this._platform.is("cordova")){
-          this.basepath = "http://172.16.0.193:8100/api"
+          this.basepath = "servidorchullavida.herokuapp.com/api"
       }
   }
   jugadores(){
-      return this.http.get(this.basepath.concat('/consultarjugadores'));
+      return this.http.get('https://servidorchullavida.herokuapp.com/api/consultarjugadores');
   }
     saveJugadores(data){
         return new Promise((resolve, reject) => {
-            this.http.post(this.basepath.concat('/agregarjugador'), JSON.stringify(data), {
+            this.http.post('https://servidorchullavida.herokuapp.com/api/agregarjugador', JSON.stringify(data), {
                 headers: { 'Content-Type': 'application/json' }
             }).subscribe(data => {
                 resolve(data);
@@ -34,7 +34,7 @@ export class RuletaServiceProvider {
     }
     deleteJugadores(data){
         return new Promise((resolve, reject) => {
-            this.http.delete(this.basepath.concat('/eliminarjugador/'+data), {
+            this.http.delete('https://servidorchullavida.herokuapp.com/api/eliminarjugador/'+data, {
                 headers: { 'Content-Type': 'application/json' }
             }).subscribe(data => {
                 resolve(data);
@@ -44,5 +44,29 @@ export class RuletaServiceProvider {
             });
         });
     }
+    setEstadoGiro(data){
+        return new Promise((resolve, reject) => {
+            this.http.post('https://servidorchullavida.herokuapp.com/api/setgiro/'+data, JSON.stringify(data), {
+                headers: { 'Content-Type': 'application/json' }
+            }).subscribe(data => {
+                resolve(data);
+            }, (err) => {
+                console.log(JSON.stringify(data));
+                reject(err);
+            });
+        });
+    }
+    /*setEstadoGiro(data){
+        return new Promise((resolve, reject) => {
+            this.http.post(this.basepath.concat('/setgiro'), JSON.stringify(data), {
+                headers: { 'Content-Type': 'application/json' }
+            }).subscribe(data => {
+                resolve(data);
+            }, (err) => {
+                console.log(JSON.stringify(data));
+                reject(err);
+            });
+        });
+    }*/
 
 }

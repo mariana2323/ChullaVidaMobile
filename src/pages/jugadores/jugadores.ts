@@ -31,7 +31,11 @@ export class JugadoresPage {
     this.JugadorServiceProvider.getJugadores()
         .subscribe(
             (data)=> {
+                console.log("enter");
+                console.log(data);
               this.jugadores = data;
+                console.log("variable jugadores");
+                console.log(this.jugadores);
             },
             (error) => {
               console.log(error);
@@ -45,6 +49,7 @@ export class JugadoresPage {
       }, (err) => {
           console.log(err);
       });
+      this.user = { id: 0, apodo: '', nombre: '', apellido: '', fecha:''};
   }
   deleteJug(id){
       this.JugadorServiceProvider.deleteJugadores(id).then((result) => {

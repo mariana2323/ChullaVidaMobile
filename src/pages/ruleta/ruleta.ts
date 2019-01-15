@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import { RuletaServiceProvider} from "../../providers/ruleta-service/ruleta-service";
 
 /**
@@ -16,10 +16,12 @@ import { RuletaServiceProvider} from "../../providers/ruleta-service/ruleta-serv
 })
 export class RuletaPage {
   jugadores: any;
+  giro= "nono";
   user = { id: 0, apodo: '', nombre: '', apellido: '', fecha:''};
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public RuletaServiceProvider: RuletaServiceProvider) {
+              public RuletaServiceProvider: RuletaServiceProvider,
+              private viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
@@ -43,5 +45,17 @@ export class RuletaPage {
                     console.log(error);
                 }
             )
+    }
+    setGirar(){
+        this.RuletaServiceProvider.setEstadoGiro(this.giro).then((result) => {
+            console.log(result);
+            this.viewCtrl._didEnter();
+        }, (err) => {
+            console.log(err);
+        });
+    }
+    girarOnClick(){
+        this.giro="aasa";
+      this.setGirar();
     }
 }
