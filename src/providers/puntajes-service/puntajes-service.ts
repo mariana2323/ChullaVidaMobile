@@ -22,4 +22,5 @@ export class ServicePuntajesProvider {
   getTopScore(data){
         return this.http.get('https://servidorchullavida.herokuapp.com/api/getpuntajescore/'+data);
     }
+
 }
