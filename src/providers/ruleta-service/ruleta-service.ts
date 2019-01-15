@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 import {Platform} from "ionic-angular";
 import {JugadorServiceProvider} from "../jugador-service/jugador-service";
 
@@ -12,18 +12,25 @@ import {JugadorServiceProvider} from "../jugador-service/jugador-service";
 @Injectable()
 export class RuletaServiceProvider {
     basepath = "/api"
-  constructor(public http: HttpClient, private _platform: Platform) {
-      if (this._platform.is("cordova")){
-          this.basepath = "servidorchullavida.herokuapp.com/api"
-      }
-  }
-  jugadores(){
-      return this.http.get('https://servidorchullavida.herokuapp.com/api/consultarjugadores');
-  }
-    saveJugadores(data){
+
+    constructor(public http: HttpClient, private _platform: Platform) {
+        if (this._platform.is("cordova")) {
+            this.basepath = "servidorchullavida.herokuapp.com/api"
+        }
+    }
+
+    jugadores() {
+        return this.http.get('https://servidorchullavida.herokuapp.com/api/consultarjugadores');
+    }
+
+    getPinRuleta() {
+        return this.http.get('https://servidorchullavida.herokuapp.com/api/getpin');
+    }
+
+    saveJugadores(data) {
         return new Promise((resolve, reject) => {
             this.http.post('https://servidorchullavida.herokuapp.com/api/agregarjugador', JSON.stringify(data), {
-                headers: { 'Content-Type': 'application/json' }
+                headers: {'Content-Type': 'application/json'}
             }).subscribe(data => {
                 resolve(data);
             }, (err) => {
@@ -32,10 +39,11 @@ export class RuletaServiceProvider {
             });
         });
     }
-    deleteJugadores(data){
+
+    deleteJugadores(data) {
         return new Promise((resolve, reject) => {
-            this.http.delete('https://servidorchullavida.herokuapp.com/api/eliminarjugador/'+data, {
-                headers: { 'Content-Type': 'application/json' }
+            this.http.delete('https://servidorchullavida.herokuapp.com/api/eliminarjugador/' + data, {
+                headers: {'Content-Type': 'application/json'}
             }).subscribe(data => {
                 resolve(data);
             }, (err) => {
@@ -44,10 +52,11 @@ export class RuletaServiceProvider {
             });
         });
     }
-    setEstadoGiro(data){
+
+    setEstadoGiro(data) {
         return new Promise((resolve, reject) => {
-            this.http.post('https://servidorchullavida.herokuapp.com/api/setgiro/'+data, JSON.stringify(data), {
-                headers: { 'Content-Type': 'application/json' }
+            this.http.post('https://servidorchullavida.herokuapp.com/api/setgiro/' + data, JSON.stringify(data), {
+                headers: {'Content-Type': 'application/json'}
             }).subscribe(data => {
                 resolve(data);
             }, (err) => {
@@ -56,17 +65,5 @@ export class RuletaServiceProvider {
             });
         });
     }
-    /*setEstadoGiro(data){
-        return new Promise((resolve, reject) => {
-            this.http.post(this.basepath.concat('/setgiro'), JSON.stringify(data), {
-                headers: { 'Content-Type': 'application/json' }
-            }).subscribe(data => {
-                resolve(data);
-            }, (err) => {
-                console.log(JSON.stringify(data));
-                reject(err);
-            });
-        });
-    }*/
 
 }

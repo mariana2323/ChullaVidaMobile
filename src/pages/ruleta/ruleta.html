@@ -11,171 +11,119 @@
 <html ng-app="ionicApp">-->
 
 <ion-header>
-  <ion-navbar>
-    <ion-title>Ruleta</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Ruleta</ion-title>
+    </ion-navbar>
 </ion-header>
 <ion-content padding center text-center>
-  <button ion-button round (click)="girarOnClick()" name="giro">Girar</button>
-  <ion-list>
-    <ion-item>
-      <ion-avatar item-start="">
-        <img src="https://i0.wp.com/significadodeloscolores.info/wp-content/uploads/2014/08/color-amarillo.png?resize=400%2C400">
-      </ion-avatar>
-      <h2>Baila Sensualmente</h2>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start="">
-        <img src="https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/630x315/format/jpg/quality/85/http%3A%2F%2Fi.huffpost.com%2Fgen%2F2507856%2Fimages%2Fn-AZUL-KLEIN-628x314.jpg">
-      </ion-avatar>
-      <h2>Canta una Canción</h2>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start="">
-        <img src="http://www.lanaranjadevalencia.es/naranja/wp-content/uploads/2009/03/color.jpg">
-      </ion-avatar>
-      <h2>Beber 1 Shot</h2>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start="">
-        <img src="https://i2.wp.com/significadodeloscolores.info/wp-content/uploads/2014/08/verde.png?resize=400%2C400">
-      </ion-avatar>
-      <h2>10 Abdominales</h2>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start="">
-        <img src="https://i0.wp.com/significadodeloscolores.info/wp-content/uploads/2014/08/color-rojo.png?resize=400%2C400">
-      </ion-avatar>
-      <h2>Reto puesto Por los Jugadores</h2>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start="">
-        <img src="https://i0.wp.com/significadodeloscolores.info/wp-content/uploads/2014/08/color-violeta.png?resize=400%2C400">
-      </ion-avatar>
-      <h2>"Beber 2 Shots"</h2>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start="">
-        <img src="http://www.pinturas-online.com/images/color-2-SalmonClaro-Textoner.jpg">
-      </ion-avatar>
-      <h2>10 Flexiones de Pecho</h2>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start="">
-        <img src="https://sunwahpanama.com/wp-content/uploads/2015/08/7006.jpg">
-      </ion-avatar>
-      <h2>Dar un Beso a quien te Guste</h2>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start="">
-        <img src="https://i1.wp.com/significadodeloscolores.info/wp-content/uploads/2015/06/color-marron.gif?resize=300%2C199">
-      </ion-avatar>
-      <h2>Beber 3 Shots</h2>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start="">
-        <img src="https://i0.wp.com/significadodeloscolores.info/wp-content/uploads/2014/08/color-negro.png?resize=400%2C400">
-      </ion-avatar>
-      <h2>"Quitarse una Prenda"</h2>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start="">
-        <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg">
-      </ion-avatar>
-      <h2>Pararse de Manos</h2>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start="">
-        <img src="https://stoffe.kawaiifabric.com/images/product_images/large_img/solid-sky-blue-Cloud-9-organic-knit-fabric-Rain-from-the-USA-206847-1.JPG">
-      </ion-avatar>
-      <h2>Beber 4 Shots</h2>
-    </ion-item>
-  </ion-list>
-  <ion-grid>
-    <ion-row>
-      <ion-list  *ngIf="jugadores?.data.length > 0">
-        <ion-item *ngFor="let jugador of jugadores?.data">
-          <p>{{jugador.apodo}}</p>
-        </ion-item>
-      </ion-list>
+    <button ion-button round (click)="girarOnClick()" name="giro">Girar</button>
+    <button ion-button round id="btnRegla" disabled (click)="presentAlertRuleta()" name="mostrar">Mostrar reto!</button>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-6>
+                <ion-item>
+                    <ion-avatar item-start="">
+                        <img src="http://significadodeloscolores.info/wp-content/uploads/2014/08/verde.png">
+                    </ion-avatar>
+                    <ion-label>Verde I</ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col col-6>
+                <ion-item>
+                    <ion-avatar item-start="">
+                        <img src="http://significadodeloscolores.info/wp-content/uploads/2014/08/color-amarillo.png">
+                    </ion-avatar>
+                    <ion-label>Amarillo I</ion-label>
+                </ion-item>
 
-      <ion-list  *ngIf="jugadores?.data.length > 0">
-        <ion-item *ngFor="let jugador of jugadores?.data">
-          <ion-avatar item-start>
-            <img src="../../assets/imgs/usuario.png">
-          </ion-avatar>
-          <p>{{jugador.apodo}}</p>
-          <p>{{jugador.nombre}} {{jugador.apellido}}
-          </p>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6>
+                <ion-item>
+                    <ion-avatar item-start="">
+                        <img src="http://significadodeloscolores.info/wp-content/uploads/2014/08/color-rojo.png">
+                    </ion-avatar>
+                    <ion-label>Rojo III</ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col col-6>
+                <ion-item>
+                    <ion-avatar item-start="">
+                        <img src="http://significadodeloscolores.info/wp-content/uploads/2014/08/color-azul.png">
+                    </ion-avatar>
+                    <ion-label>Azul III</ion-label>
+                </ion-item>
+            </ion-col>
 
-        </ion-item>
-      </ion-list>
 
-      <ion-col col-2=""><button ion-button="">✓</button></ion-col>
-      <ion-col col-2=""><button ion-button="" color="danger">x</button></ion-col>
-    </ion-row>
-  </ion-grid>
+        </ion-row>
+        <ion-row>
+
+
+            <ion-col col-6>
+                <ion-item>
+                    <ion-avatar item-start="">
+                        <img src="http://significadodelossuenos24.com/wp-content/uploads/significado-del-color-naranja.png">
+                    </ion-avatar>
+                    <ion-label>Naranja I</ion-label>
+                </ion-item>
+
+            </ion-col>
+            <ion-col col-6>
+                <ion-item>
+                    <ion-avatar item-start="">
+                        <img src="http://significadodelossuenos24.com/wp-content/uploads/significado-del-color-naranja.png">
+                    </ion-avatar>
+                    <ion-label>Naranja II</ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+
+            <ion-col col-6>
+                <ion-item>
+                    <ion-avatar item-start="">
+                        <img src="http://significadodeloscolores.info/wp-content/uploads/2014/08/verde.png">
+                    </ion-avatar>
+                    <ion-label>Verde II</ion-label>
+                </ion-item>
+
+            </ion-col>
+            <ion-col col-6>
+                <ion-item>
+                    <ion-avatar item-start="">
+                        <img src="http://significadodeloscolores.info/wp-content/uploads/2014/08/color-amarillo.png">
+                    </ion-avatar>
+                    <ion-label>Amarillo II</ion-label>
+                </ion-item>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div margin>
+        <ion-list *ngIf="jugadores?.data.length > 0">
+            <ion-item *ngFor="let jugador of jugadores?.data">
+                <ion-avatar item-start>
+                    <img src="../../assets/imgs/usuario.png">
+                </ion-avatar>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-8>
+                            <p>{{jugador.apodo}} cumplió el reto?</p>
+                        </ion-col>
+                        <ion-col col-4>
+                            <p>
+                                <ion-icon name="checkmark-circle"></ion-icon>
+                            </p>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+
+
+            </ion-item>
+        </ion-list>
+    </div>
 </ion-content>
-
-<!--
-#include <SPI.h>
-  #include <Ethernet.h>
-  #include <Servo.h>
-
-  byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };   //Direccion Fisica MAC
-  byte ip[] = { 192, 168, 100, 70 };                       // IP Local que usted debe configurar
-  byte gateway[] = { 192, 168, 100, 1 };                   // Puerta de enlace
-  byte subnet[] = { 255, 255, 255, 0 };                  //Mascara de Sub Red
-  EthernetServer server(80);                             //Se usa el puerto 80 del servidor
-  String readString;
-
-  void setup() {
-  Serial.begin(9600);  // Inicializa el puerto serial
-  while (!Serial) {   // Espera a que el puerto serial sea conectado, Solo necesario para el Leonardo
-  ;
-  }
-
-  Ethernet.begin(mac, ip, gateway, subnet); // Inicializa la conexion Ethernet y el servidor
-  server.begin();
-  Serial.print("El Servidor es: ");
-  Serial.println(Ethernet.localIP());    // Imprime la direccion IP Local
-
-  int j = 0 ;
-  for ( j = 2 ; j < 14 ; j++)
-  pinMode( j , OUTPUT) ;
-  }
-
-  void loop() {
-
-  EthernetClient client = server.available();
-  if (client) {
-  while (client.connected()) {
-  if (client.available()) {
-  char c = client.read();
-
-  //Lee caracter por caracter HTTP
-  if (readString.length() < 100) {
-  //Almacena los caracteres a un String
-  readString += c;
-
-  }
-
-  int i = 0;
-  int duracion=60;
-  for ( i = 2 ; i < 14 ; i++){
-  long randomico = random(12,duracion);
-  long randomico2   = random(12,duracion);
-  digitalWrite( i , HIGH);
-  if(randomico==randomico2)
-  {
-  delay(5000);
-  }
-  else{
-  delay (50);
-  }
-  digitalWrite( i , LOW);
-  delay (50) ;
-
-  }
-  }
--->

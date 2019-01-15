@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import { RuletaServiceProvider} from "../../providers/ruleta-service/ruleta-service";
 
 /**
@@ -17,14 +17,19 @@ import { RuletaServiceProvider} from "../../providers/ruleta-service/ruleta-serv
 export class RuletaPage {
   jugadores: any;
   giro= "nono";
+  pin: any;
   user = { id: 0, apodo: '', nombre: '', apellido: '', fecha:''};
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public RuletaServiceProvider: RuletaServiceProvider,
-              private viewCtrl: ViewController) {
+              private viewCtrl: ViewController,
+              private alertCtrl: AlertController) {
+
+
   }
 
   ionViewDidLoad() {
+      //document.getElementById('btnRegla').setAttribute('disabled','true');
       this.RuletaServiceProvider.jugadores()
           .subscribe(
               (data)=> {
@@ -35,17 +40,6 @@ export class RuletaPage {
               }
           )
   }
-    ionViewDidEnter() {
-        this.RuletaServiceProvider.jugadores()
-            .subscribe(
-                (data)=> {
-                    this.jugadores = data;
-                },
-                (error) => {
-                    console.log(error);
-                }
-            )
-    }
     setGirar(){
         this.RuletaServiceProvider.setEstadoGiro(this.giro).then((result) => {
             console.log(result);
@@ -56,6 +50,36 @@ export class RuletaPage {
     }
     girarOnClick(){
         this.giro="aasa";
+        setTimeout(() => {
+            document.getElementById('btnRegla').removeAttribute('disabled');
+            console.log("prueba")
+        }, 20000)
       this.setGirar();
+    }
+    presentAlertRuleta() {
+        this.RuletaServiceProvider.getPinRuleta()
+            .subscribe(
+                (data)=> {
+                    this.pin = data;
+                    console.log(data);
+                    console.log(this.pin);
+                    var nombre="Reto";
+                    var detalle=this.pin.data[0]["pin"];
+                    console.log("prueba1");
+                    console.log(detalle);
+                    console.log("prueba2");
+                    let alert = this.alertCtrl.create({
+                        title: nombre,
+                        subTitle: detalle,
+                        buttons: ['Ok']
+                    });
+                    alert.present();
+                },
+                (error) => {
+                    console.log(error);
+                }
+            )
+
+
     }
 }
