@@ -11,6 +11,7 @@ import { InicioPage } from '../pages/inicio/inicio';
 })
 export class MyApp {
   rootPage:any = TabsPage;
+    rootPag:any = InicioPage;
   showSplash = true;
 
 

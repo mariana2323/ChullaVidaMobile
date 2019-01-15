@@ -33,19 +33,30 @@ export class DadoJugadorPage implements OnInit {
     jugador:any;
     cont=0;
     isenabled=false;
-
+    j=0;
+    aux=0;
     isRun = false;
     estado: string = 'play';
     refreshColor = 'light';
 
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public servProv: DadoServiceProvider) {
-
+        this.servProv.getJugadores()
+            .subscribe(
+                (data)=>{this.jugador=data},
+                (error)=>{
+                    console.log(error);
+                    this.aux=this.jugador.length;
+                }
+            )
     }
 
+    public jugadoraleatorio(){
+    if (this.j<this.jugador.length)
+        this.j++;
+    }
     ngOnInit() {
         this.cards = cards.cards;
-
     }
     ionViewDidLoad() {
         this.servProv.getJugadores()
@@ -53,6 +64,7 @@ export class DadoJugadorPage implements OnInit {
                 (data)=>{this.jugador=data},
                 (error)=>{
                     console.log(error);
+                    this.aux=this.jugador.length;
                 }
             )
     }
