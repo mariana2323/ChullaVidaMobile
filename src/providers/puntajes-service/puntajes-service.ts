@@ -13,13 +13,13 @@ export class ServicePuntajesProvider {
   basepath = "/api"
   constructor(public http: HttpClient, private _platform: Platform) {
       if (this._platform.is("cordova")){
-          this.basepath = "http://192.168.39.53:8100/api"
+          this.basepath = "servidorchullavida.herokuapp.com/api"
       }
   }
   getPuntajesTop5(data){
-      return this.http.get(this.basepath.concat('/getpuntaje/'+data));
+      return this.http.get('https://servidorchullavida.herokuapp.com/api/getpuntaje/'+data);
   }
   getTopScore(data){
-        return this.http.get(this.basepath.concat('/getpuntajescore/'+data));
+        return this.http.get('https://servidorchullavida.herokuapp.com/api/getpuntajescore/'+data);
     }
 }

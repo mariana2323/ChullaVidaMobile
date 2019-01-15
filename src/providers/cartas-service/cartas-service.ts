@@ -17,6 +17,8 @@ export class CartasServiceProvider {
         }*/
     }
     getCartas(){
-        return this.http.get(this.basepath.concat('http://localhost:8000/api/juegoCascada'));
+
+        return this.http.get(this.basepath.concat('https://servidorchullavida.herokuapp.com/api/juegoCascada'));
     }
+
 }
