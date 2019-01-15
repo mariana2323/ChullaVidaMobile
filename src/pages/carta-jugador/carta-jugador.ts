@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {CartasServiceProvider} from "../../providers/cartas-service/cartas-service";
 import { AlertController } from 'ionic-angular';
 import {ContactPage} from "../contact/contact";
+import {ServicePuntajesProvider} from "../../providers/puntajes-service/puntajes-service";
+//import {ServicePuntajesProvider} from "../../providers/puntajes-service";
 /**
  * Generated class for the CartaJugadorPage page.
  *
@@ -20,8 +22,9 @@ cartas:any;
 carta=0;
 cont=0;
 isenabled=false;
+puntaje = { id: 0, id_jugador: '', puntajes_cartas: 0, puntajes_dados: 0, puntajes_ruleta:0};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public servProv:CartasServiceProvider,private alertCtrl: AlertController) {
+  constructor(private viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams, public servProv:CartasServiceProvider, public servProvPuntaje:ServicePuntajesProvider,private alertCtrl: AlertController) {
       this.servProv.getCartas()
           .subscribe(
               (data) => {
@@ -45,7 +48,7 @@ isenabled=false;
       document.getElementById('reglaCarta').removeAttribute('hidden');
       document.getElementById('jugador').removeAttribute('hidden');
       document.getElementById('btnVoltear').removeAttribute('hidden');
-      document.getElementById('btnDetalle').removeAttribute('hidenn');
+      document.getElementById('btnDetalle').removeAttribute('hidden');
 
         this.isenabled=true;
         if(this.cartas.data[this.cont][0]["numero"]=="K")
@@ -107,4 +110,19 @@ isenabled=false;
     {
         this.navCtrl.push(ContactPage);
     }
+    /*public puntajeSum()
+    {
+        this.puntaje.id_jugador=this.cartas.data[this.cont][2]["id"];
+        this.puntaje.puntajes_cartas=1;
+        this.servProvPuntaje.savePuntaje(this.puntaje).then((result) => {
+            console.log(result);
+            this.viewCtrl._didEnter();
+        }, (err) => {
+            console.log(err);
+        });
+        this.puntaje = { id: 0, id_jugador: '', puntajes_cartas: 0, puntajes_dados: 0, puntajes_ruleta:0};
+    }
+*/
+
+
 }

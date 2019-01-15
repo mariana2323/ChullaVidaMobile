@@ -22,7 +22,7 @@ export class PuntajesPage {
   }
 
   ionViewDidLoad() {
-      this.ServicePuntajesProvider.getPuntajesTop5('ruleta')
+      this.ServicePuntajesProvider.getPuntajesTop5('cartas')
           .subscribe(
               (data)=> {
                   this.puntajes1 = data;
@@ -31,7 +31,7 @@ export class PuntajesPage {
                   console.log(error);
               }
           );
-      this.ServicePuntajesProvider.getTopScore('ruleta')
+      this.ServicePuntajesProvider.getTopScore('cartas')
           .subscribe(
               (data)=> {
                   this.puntajes2 = data;
