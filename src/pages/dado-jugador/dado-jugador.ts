@@ -40,13 +40,7 @@ export class DadoJugadorPage implements OnInit {
 
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public servProv: DadoServiceProvider) {
-        this.servProv.getJugadores()
-            .subscribe(
-                (data)=>{this.jugador=data},
-                (error)=>{
-                    console.log(error);
-                }
-            )
+
     }
 
     ngOnInit() {
@@ -54,9 +48,13 @@ export class DadoJugadorPage implements OnInit {
 
     }
     ionViewDidLoad() {
-        console.log('ionViewDidLoad DadoJugadorPage');
-        console.log(this.cards);
-
+        this.servProv.getJugadores()
+            .subscribe(
+                (data)=>{this.jugador=data},
+                (error)=>{
+                    console.log(error);
+                }
+            )
     }
     getRandom() {
         let rd = Math.floor(Math.random() * this.cards.length);

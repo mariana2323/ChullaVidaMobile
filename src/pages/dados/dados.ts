@@ -22,7 +22,7 @@ export class DadosPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public servProv: DadoServiceProvider) {
   }
     irDadoJugador(){
-        this.servProv.getDados()
+       /* this.servProv.getDados()
             .subscribe(
                 (data) => {
                     this.dados = data;
@@ -30,7 +30,7 @@ export class DadosPage {
                 (error) => {
                     console.log(error);
                 }
-            )
+            )*/
         this.navCtrl.setRoot(DadoJugadorPage,{dados:this.dados});
     }
 }

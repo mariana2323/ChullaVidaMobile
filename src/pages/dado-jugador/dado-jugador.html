@@ -13,7 +13,7 @@
               <button class="boton2">
               <ion-card text-wrap ion-item>
                   <img class="imagen" src="../../assets/imgs/dado3.png"/>
-                  <div class="card-title">{{jugador}}</div>
+                  <div class="card-title">{{jugador?.data[0]["apodo"]}}</div>
               </ion-card>
               </button>
               <button class="boton2" (click)="getRandom()">
