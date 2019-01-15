@@ -1,12 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Platform} from "ionic-angular";
+
 /*
   Generated class for the DadoServiceProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+export interface Card {
+    id: string;
+    jugador: string;
+    reto1: string;
+    reto2: string;
+    accion: string;
+}
 @Injectable()
 export class DadoServiceProvider {
   basepath = ""
@@ -17,8 +25,6 @@ export class DadoServiceProvider {
   }
 
   getDados(){
-      //return this.http.get(this.basepath.concat('http://localhost:8000/api/juegoDados'));
-      //return this.http.get("https://jsonplaceholder.typicode.com/users");
-      return this.http.get("../../assets/data/info.json");
+      return this.http.get(this.basepath.concat('http://localhost:8000/api/juegoDados'));
   }
 }
